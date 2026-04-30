@@ -234,6 +234,19 @@ a { color: inherit; text-decoration: none; }
   font-weight: 500;
 }
 
+/* ---------- Visually hidden (a11y / SEO heading) ------------------------ */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ---------- Signals strip (product tease) -------------------------------- */
 .signalsStrip {
   margin-top: 64px;
@@ -244,14 +257,19 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 14px;
-}
-.signalsStrip .stripLabel span:first-child {
+  margin: 0 0 14px;
   font-size: 11px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   font-weight: 700;
   color: var(--fg-2);
+}
+.signalsStrip .stripLabel span:first-child {
+  font-size: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  font-weight: inherit;
+  color: inherit;
 }
 .signalsStrip .stripLabel .live {
   font-size: 11px;
@@ -339,7 +357,7 @@ a { color: inherit; text-decoration: none; }
   text-transform: uppercase;
   font-weight: 700;
   color: var(--fg-2);
-  margin-bottom: 18px;
+  margin: 0 0 18px;
 }
 .tracks .grid {
   display: grid;

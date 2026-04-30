@@ -167,9 +167,9 @@ const SuccessState = ({ email }) => (
 
 const SignalsStrip = () => (
   <div className="signalsStrip">
-    <div className="stripLabel">
+    <h2 className="stripLabel">
       <span>Industry signals (sample)</span>
-    </div>
+    </h2>
     <div>
       {SIGNALS.map((s, i) => (
         <div className="signalRow" key={i}>
@@ -183,6 +183,7 @@ const SignalsStrip = () => (
 
 const Counter = () => (
   <div className="counter">
+    <h2 className="visually-hidden">By the numbers</h2>
     {COUNTERS.map((c, i) => (
       <div className="cell" key={i}>
         <p className="num">{c.num}</p>
@@ -194,7 +195,7 @@ const Counter = () => (
 
 const Tracks = () => (
   <div className="tracks">
-    <p className="stripLabel">What we track</p>
+    <h2 className="stripLabel">What we track</h2>
     <div className="grid">
       {TRACKS.map((t) => (
         <div className="item" key={t.num}>
