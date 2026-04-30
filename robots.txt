@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://49th.io/sitemap.xml
