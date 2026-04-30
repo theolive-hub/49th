@@ -203,7 +203,7 @@
 
       <div class="thanks" id="thanks">Thanks. We'll be in touch.</div>
 
-      <form id="signup" action="mailto:hello@49th.io" method="post" enctype="text/plain">
+      <form id="signup" action="https://formspree.io/f/maqvwavy" method="POST">
         <input type="email" name="email" placeholder="Email address" required>
         <button type="submit">Subscribe</button>
       </form>
@@ -219,13 +219,15 @@
 <script>
   const form = document.getElementById('signup');
   const thanks = document.getElementById('thanks');
-  form.addEventListener('submit', () => {
-    setTimeout(() => {
-      form.reset();
-      thanks.classList.add('show');
-    }, 100);
-  });
-</script>
+  const button = form.querySelector('button');
+  const originalLabel = button.textContent;
 
-</body>
-</html>
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    button.disabled = true;
+    button.textContent = 'Sending';
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new
