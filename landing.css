@@ -428,18 +428,6 @@ a { color: inherit; text-decoration: none; }
   gap: 28px;
 }
 
-/* ---------- Dark mode (Tweak) ------------------------------------------- */
-body.dark {
-  --bg-app: #0B0B0B;
-  --bg-surface: #141414;
-  --bg-muted: #1C1C1C;
-  --fg-1: #F5F5F5;
-  --fg-2: #9A9A9A;
-  --fg-3: #6A6A6A;
-  --border-hairline: #232323;
-}
-body.dark .markRow img { filter: invert(1); }
-
 /* ---------- Reduced motion ---------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   .topbar .meta .dot,
