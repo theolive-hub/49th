@@ -1,9 +1,11 @@
 // THE 49TH — Pre-launch landing page
 // Minimal, hero-led, single column.
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/maqvwavy";
+
 const HEADLINE = {
   eyebrow: "Launching soon",
-  h1: "The intelligence layer for Canadian film & TV.",
+  h1: "Production intelligence for Canadian film & TV.",
   dek: "A real-time record of what's in production, who's making it, and where the money is moving. Built for the people working in the industry.",
 };
 
@@ -26,18 +28,19 @@ const COUNTERS = [
   { num: "142",  label: "Active projects" },
   { num: "28",   label: "New this week" },
   { num: "64",   label: "Companies tracked" },
-  { num: "9",    label: "Provinces covered" },
+  { num: "10",   label: "Provinces covered" },
 ];
 
 const Landing = () => {
   const [email, setEmail] = React.useState("");
   const [status, setStatus] = React.useState("idle");
   const [error, setError] = React.useState("");
+  const [submittedEmail, setSubmittedEmail] = React.useState("");
   const inputRef = React.useRef(null);
 
   const validateEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     if (!validateEmail(email)) {
       setStatus("invalid");
@@ -47,7 +50,26 @@ const Landing = () => {
     }
     setStatus("submitting");
     setError("");
-    setTimeout(() => setStatus("success"), 450);
+
+    try {
+      const fd = new FormData();
+      fd.append("email", email.trim());
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: fd,
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        const msg = data?.errors?.[0]?.message || "Something went wrong. Try again, or email tips@49th.io.";
+        throw new Error(msg);
+      }
+      setSubmittedEmail(email.trim());
+      setStatus("success");
+    } catch (err) {
+      setStatus("invalid");
+      setError(err.message || "Network error. Try again.");
+    }
   };
 
   const onChange = (v) => {
@@ -61,8 +83,8 @@ const Landing = () => {
   return (
     <div className="page">
       <header className="topbar">
-        <a href="#" className="markRow" aria-label="The 49th">
-          <img src="assets/49-lockup.png" alt="The 49th" />
+        <a href="/" className="markRow" aria-label="The 49th">
+          <img src="assets/49-lockup.svg" alt="The 49th" width="140" height="140" />
         </a>
         <div className="meta">
           <span><span className="dot"></span>Pre-launch</span>
@@ -77,7 +99,7 @@ const Landing = () => {
 
         <div className="signup">
           {status === "success" ? (
-            <SuccessState email={email} />
+            <SuccessState email={submittedEmail} />
           ) : (
             <form className="signupForm" onSubmit={onSubmit} noValidate>
               <span className="label">Get early access</span>
@@ -120,8 +142,6 @@ const Landing = () => {
       <footer className="footer">
         <span>© 2026 The 49th</span>
         <div className="links">
-          <a href="#">Privacy</a>
-          <a href="#">Press</a>
           <a href="mailto:tips@49th.io">Tips</a>
         </div>
       </footer>
@@ -149,7 +169,6 @@ const SignalsStrip = () => (
   <div className="signalsStrip">
     <div className="stripLabel">
       <span>Industry signals (sample)</span>
-      <span className="live">Live</span>
     </div>
     <div>
       {SIGNALS.map((s, i) => (
