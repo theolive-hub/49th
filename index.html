@@ -3,8 +3,27 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The 49th — Pre-launch</title>
-  <meta name="description" content="The intelligence layer for Canadian film & TV. Pre-launch signup." />
+
+  <title>The 49th: Canadian Film & TV Production Intelligence</title>
+  <meta name="description" content="The intelligence layer for Canadian film & TV. A real-time record of what's in production, who's making it, and where the money is moving." />
+
+  <link rel="canonical" href="https://49th.io/" />
+  <link rel="icon" href="assets/49-monogram-mark.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="The 49th" />
+  <meta property="og:title" content="The 49th: Canadian Film & TV Production Intelligence" />
+  <meta property="og:description" content="The intelligence layer for Canadian film & TV." />
+  <meta property="og:url" content="https://49th.io/" />
+  <meta property="og:image" content="https://49th.io/assets/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The 49th: Canadian Film & TV Production Intelligence" />
+  <meta name="twitter:description" content="The intelligence layer for Canadian film & TV." />
+  <meta name="twitter:image" content="https://49th.io/assets/og.png" />
+
   <link rel="stylesheet" href="tokens.css" />
   <link rel="stylesheet" href="landing.css" />
 
@@ -13,7 +32,50 @@
   <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div id="root"></div>
+  <!--
+    The static markup below is what crawlers and link unfurlers see.
+    React's createRoot replaces it at runtime for users with JS. Keep this in
+    sync with landing.jsx if hero copy changes.
+  -->
+  <div id="root">
+    <div class="page">
+      <header class="topbar">
+        <a href="#" class="markRow" aria-label="The 49th">
+          <img src="assets/49-lockup.png" alt="The 49th" />
+        </a>
+        <div class="meta">
+          <span><span class="dot"></span>Pre-launch</span>
+          <span>Spring 2026</span>
+        </div>
+      </header>
+
+      <section class="hero">
+        <p class="eyebrow">Launching soon</p>
+        <h1>The intelligence layer for Canadian film &amp; TV.</h1>
+        <p class="dek">A real-time record of what's in production, who's making it, and where the money is moving. Built for the people working in the industry.</p>
+
+        <div class="signup">
+          <form class="signupForm" action="#" method="post" novalidate>
+            <span class="label">Get early access</span>
+            <div class="emailRow">
+              <input type="email" name="email" inputmode="email" autocomplete="email" placeholder="you@productioncompany.ca" />
+              <button type="submit">Request access</button>
+            </div>
+            <p class="formNote">No spam. We'll just let you know when we're out of beta.</p>
+          </form>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>© 2026 The 49th</span>
+        <div class="links">
+          <a href="#">Privacy</a>
+          <a href="#">Press</a>
+          <a href="mailto:tips@49th.io">Tips</a>
+        </div>
+      </footer>
+    </div>
+  </div>
 
   <script type="text/babel" src="landing.jsx"></script>
 </body>

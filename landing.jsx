@@ -4,7 +4,7 @@
 const HEADLINE = {
   eyebrow: "Launching soon",
   h1: "The intelligence layer for Canadian film & TV.",
-  dek: "A real-time record of what's in production, who's making it, and where the money is moving — built for the people working in the industry.",
+  dek: "A real-time record of what's in production, who's making it, and where the money is moving. Built for the people working in the industry.",
 };
 
 const SIGNALS = [
@@ -16,10 +16,10 @@ const SIGNALS = [
 ];
 
 const TRACKS = [
-  { num: "01", title: "Projects",    body: "Every active film, series and pilot in development, production or post — tracked by status, location and company." },
+  { num: "01", title: "Projects",    body: "Every active film, series and pilot in development, production or post. Tracked by status, location and company." },
   { num: "02", title: "People",      body: "Directors, writers, cinematographers, department heads. Who's attached to what, and when they signed on." },
-  { num: "03", title: "Companies",   body: "Production companies, broadcasters, studios, post houses — their slates, partners and movement." },
-  { num: "04", title: "Financing",   body: "Tax credits, fund allocations, broadcaster commitments, equity deals — the money behind the slate." },
+  { num: "03", title: "Companies",   body: "Production companies, broadcasters, studios, post houses. Their slates, partners and movement." },
+  { num: "04", title: "Financing",   body: "Tax credits, fund allocations, broadcaster commitments, equity deals. The money behind the slate." },
 ];
 
 const COUNTERS = [
@@ -122,7 +122,7 @@ const Landing = () => {
         <div className="links">
           <a href="#">Privacy</a>
           <a href="#">Press</a>
-          <a href="mailto:tips@the49th.ca">Tips</a>
+          <a href="mailto:tips@49th.io">Tips</a>
         </div>
       </footer>
     </div>
@@ -148,7 +148,7 @@ const SuccessState = ({ email }) => (
 const SignalsStrip = () => (
   <div className="signalsStrip">
     <div className="stripLabel">
-      <span>Industry signals — sample</span>
+      <span>Industry signals (sample)</span>
       <span className="live">Live</span>
     </div>
     <div>
