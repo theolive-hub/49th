@@ -29,6 +29,13 @@
   <link rel="stylesheet" href="tokens.css" />
   <link rel="stylesheet" href="landing.css" />
 
+  <!--
+    Google Search Console verification: replace VERIFICATION_TOKEN with the
+    string from search.google.com/search-console after adding 49th.io and
+    choosing the HTML tag verification method. Then submit /sitemap.xml.
+  -->
+  <!-- <meta name="google-site-verification" content="VERIFICATION_TOKEN" /> -->
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -61,16 +68,16 @@
         </div>
       </header>
 
-      <section class="hero">
+      <main class="hero">
         <p class="eyebrow">Launching soon</p>
         <h1>Production intelligence for Canadian film &amp; TV.</h1>
         <p class="dek">A real-time record of what's in production, who's making it, and where the money is moving. Built for the people working in the industry.</p>
 
         <div class="signup">
           <form class="signupForm" action="https://formspree.io/f/maqvwavy" method="post" novalidate>
-            <span class="label">Get early access</span>
+            <label for="emailInput" class="label">Get early access</label>
             <div class="emailRow">
-              <input type="email" name="email" inputmode="email" autocomplete="email" placeholder="you@productioncompany.ca" aria-describedby="form-note" required />
+              <input id="emailInput" type="email" name="email" inputmode="email" autocomplete="email" placeholder="you@productioncompany.ca" aria-describedby="form-note" required />
               <button type="submit">
                 Request access
                 <span class="arrow" aria-hidden="true">
@@ -138,7 +145,7 @@
             </div>
           </div>
         </div>
-      </section>
+      </main>
 
       <footer class="footer">
         <span>© 2026 The 49th</span>

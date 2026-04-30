@@ -83,7 +83,7 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.12em;
   text-transform: uppercase;
   font-weight: 700;
-  color: var(--signal);
+  color: var(--signal-pressed);
   margin: 0 0 28px;
 }
 
@@ -142,11 +142,17 @@ a { color: inherit; text-decoration: none; }
 .emailRow input::placeholder {
   color: var(--fg-3);
 }
-.emailRow input:focus {
+.emailRow input:focus-visible {
   border-color: var(--fg-1);
+  outline: 2px solid var(--fg-1);
+  outline-offset: 2px;
 }
 .emailRow input.invalid {
   border-color: var(--signal);
+}
+.emailRow button:focus-visible {
+  outline: 2px solid var(--fg-1);
+  outline-offset: 3px;
 }
 .emailRow button {
   height: 52px;
@@ -179,11 +185,11 @@ a { color: inherit; text-decoration: none; }
 .formNote {
   margin-top: 14px;
   font-size: 12px;
-  color: var(--fg-3);
+  color: var(--fg-2);
   letter-spacing: 0.02em;
 }
 .formNote.error {
-  color: var(--signal);
+  color: var(--signal-pressed);
 }
 
 /* success state */
@@ -305,7 +311,7 @@ a { color: inherit; text-decoration: none; }
 .signalRow .text { color: var(--fg-1); }
 .signalRow time {
   font-size: 11px;
-  color: var(--fg-3);
+  color: var(--fg-2);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   white-space: nowrap;
@@ -380,7 +386,7 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.12em;
   text-transform: uppercase;
   font-weight: 700;
-  color: var(--fg-3);
+  color: var(--fg-2);
   font-variant-numeric: tabular-nums;
 }
 .tracks .item h3 {
@@ -409,10 +415,14 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.12em;
   text-transform: uppercase;
   font-weight: 700;
-  color: var(--fg-3);
+  color: var(--fg-2);
   gap: 24px;
 }
-.footer a:hover { color: var(--signal); }
+.footer a:hover { color: var(--signal-pressed); }
+.footer a:focus-visible {
+  outline: 2px solid var(--fg-1);
+  outline-offset: 3px;
+}
 .footer .links {
   display: flex;
   gap: 28px;
@@ -429,6 +439,17 @@ body.dark {
   --border-hairline: #232323;
 }
 body.dark .markRow img { filter: invert(1); }
+
+/* ---------- Reduced motion ---------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .topbar .meta .dot,
+  .signalsStrip .stripLabel .live::before {
+    animation: none;
+  }
+  .success {
+    animation: none;
+  }
+}
 
 /* ---------- Responsive --------------------------------------------------- */
 @media (max-width: 720px) {

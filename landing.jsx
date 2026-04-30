@@ -92,7 +92,7 @@ const Landing = () => {
         </div>
       </header>
 
-      <section className="hero">
+      <main className="hero">
         <p className="eyebrow">{HEADLINE.eyebrow}</p>
         <h1>{HEADLINE.h1}</h1>
         <p className="dek">{HEADLINE.dek}</p>
@@ -102,10 +102,11 @@ const Landing = () => {
             <SuccessState email={submittedEmail} />
           ) : (
             <form className="signupForm" onSubmit={onSubmit} noValidate>
-              <span className="label">Get early access</span>
+              <label htmlFor="emailInput" className="label">Get early access</label>
               <div className="emailRow">
                 <input
                   ref={inputRef}
+                  id="emailInput"
                   type="email"
                   inputMode="email"
                   autoComplete="email"
@@ -137,7 +138,7 @@ const Landing = () => {
         <SignalsStrip />
         <Counter />
         <Tracks />
-      </section>
+      </main>
 
       <footer className="footer">
         <span>© 2026 The 49th</span>
