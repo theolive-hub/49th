@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>49th.io</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            text-align: center;
+        }
+        .content {
+            max-width: 800px;
+            padding: 40px;
+        }
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin: 0 0 20px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>49th.io</h1>
+        <p>Technical production and hardware systems.</p>
+        <p>Kitchener, Ontario.</p>
+    </div>
+</body>
+</html>
