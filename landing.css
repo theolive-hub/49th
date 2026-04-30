@@ -1,0 +1,460 @@
+/* ============================================================================
+   THE 49TH — LANDING PAGE
+   Minimal, single column, hero-led. Pre-launch email capture.
+   ============================================================================ */
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg-app);
+  color: var(--fg-1);
+  font-family: var(--font-sans);
+  font-size: var(--t-body);
+  line-height: var(--lh-normal);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+button { font: inherit; color: inherit; }
+input { font: inherit; color: inherit; }
+a { color: inherit; text-decoration: none; }
+
+/* ---------- Page shell --------------------------------------------------- */
+.page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 56px 56px 80px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ---------- Top bar ------------------------------------------------------ */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-hairline);
+}
+.topbar .markRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.markRow img {
+  height: 140px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+.topbar .meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--fg-2);
+}
+.topbar .meta .dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--signal);
+  margin-right: 8px;
+  vertical-align: 1px;
+  animation: pulse 2.4s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+/* ---------- Hero --------------------------------------------------------- */
+.hero {
+  padding: 96px 0 56px;
+  flex: 1;
+}
+
+.hero .eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--signal-pressed);
+  margin: 0 0 28px;
+}
+
+.hero h1 {
+  font-size: clamp(40px, 5.6vw, 60px);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  font-weight: 600;
+  margin: 0 0 26px;
+  text-wrap: balance;
+}
+
+.hero .dek {
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--fg-2);
+  margin: 0 0 44px;
+  max-width: 560px;
+}
+.hero .dek em {
+  font-style: normal;
+  color: var(--fg-1);
+}
+
+/* ---------- Email signup -------------------------------------------------- */
+.signup {
+  margin-top: 12px;
+}
+.signup .label {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--fg-2);
+  margin-bottom: 12px;
+}
+
+.emailRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  width: 100%;
+}
+.emailRow input {
+  height: 52px;
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--r-pill);
+  background: var(--bg-surface);
+  padding: 0 22px;
+  font-size: 15px;
+  color: var(--fg-1);
+  outline: none;
+  transition: border-color var(--dur-fast) var(--easing);
+}
+.emailRow input::placeholder {
+  color: var(--fg-3);
+}
+.emailRow input:focus-visible {
+  border-color: var(--fg-1);
+  outline: 2px solid var(--fg-1);
+  outline-offset: 2px;
+}
+.emailRow input.invalid {
+  border-color: var(--signal);
+}
+.emailRow button:focus-visible {
+  outline: 2px solid var(--fg-1);
+  outline-offset: 3px;
+}
+.emailRow button {
+  height: 52px;
+  border: 0;
+  background: var(--signal);
+  color: var(--fg-on-red);
+  border-radius: var(--r-pill);
+  padding: 0 28px;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--easing), transform var(--dur-fast) var(--easing);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.emailRow button:hover { background: var(--signal-hover); }
+.emailRow button:active { background: var(--signal-pressed); transform: translateY(1px); }
+.emailRow button[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.emailRow button .arrow {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+}
+
+.formNote {
+  margin-top: 14px;
+  font-size: 12px;
+  color: var(--fg-2);
+  letter-spacing: 0.02em;
+}
+.formNote.error {
+  color: var(--signal-pressed);
+}
+
+/* success state */
+.success {
+  margin-top: 12px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 16px;
+  padding: 20px 22px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--r-md);
+  align-items: start;
+  animation: fadeIn 220ms var(--easing);
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.success .check {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--signal);
+  color: var(--fg-on-red);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.success .check svg { width: 18px; height: 18px; display: block; }
+.success .body strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+  color: var(--fg-1);
+}
+.success .body p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--fg-2);
+}
+.success .body p .em {
+  color: var(--fg-1);
+  font-weight: 500;
+}
+
+/* ---------- Visually hidden (a11y / SEO heading) ------------------------ */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Signals strip (product tease) -------------------------------- */
+.signalsStrip {
+  margin-top: 64px;
+  padding-top: 26px;
+  border-top: 1px solid var(--border-hairline);
+}
+.signalsStrip .stripLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 14px;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--fg-2);
+}
+.signalsStrip .stripLabel span:first-child {
+  font-size: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+.signalsStrip .stripLabel .live {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--signal);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.signalsStrip .stripLabel .live::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--signal);
+  display: inline-block;
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+.signalRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: baseline;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--border-hairline);
+  font-size: 14px;
+  line-height: 1.4;
+}
+.signalRow:last-child { border-bottom: 0; }
+.signalRow .text { color: var(--fg-1); }
+.signalRow time {
+  font-size: 11px;
+  color: var(--fg-2);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Counter / what we track -------------------------------------- */
+.counter {
+  margin-top: 64px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--r-md);
+  background: var(--bg-surface);
+  overflow: hidden;
+}
+.counter .cell {
+  padding: 24px 22px;
+  border-right: 1px solid var(--border-hairline);
+}
+.counter .cell:last-child { border-right: 0; }
+.counter .num {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--fg-1);
+  font-variant-numeric: tabular-nums;
+  margin: 0 0 10px;
+}
+.counter .label {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--fg-2);
+  margin: 0;
+}
+
+/* ---------- "What we track" list ----------------------------------------- */
+.tracks {
+  margin-top: 64px;
+  padding-top: 26px;
+  border-top: 1px solid var(--border-hairline);
+}
+.tracks .stripLabel {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--fg-2);
+  margin: 0 0 18px;
+}
+.tracks .grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--border-hairline);
+}
+.tracks .item {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--border-hairline);
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 14px;
+  align-items: baseline;
+}
+.tracks .item:nth-child(odd) { padding-right: 24px; }
+.tracks .item:nth-child(even) { padding-left: 24px; border-left: 1px solid var(--border-hairline); }
+.tracks .item .num {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--fg-2);
+  font-variant-numeric: tabular-nums;
+}
+.tracks .item h3 {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin: 0 0 6px;
+  color: var(--fg-1);
+}
+.tracks .item p {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--fg-2);
+  margin: 0;
+}
+
+/* ---------- Footer ------------------------------------------------------- */
+.footer {
+  margin-top: 96px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border-hairline);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--fg-2);
+  gap: 24px;
+}
+.footer a:hover { color: var(--signal-pressed); }
+.footer a:focus-visible {
+  outline: 2px solid var(--fg-1);
+  outline-offset: 3px;
+}
+.footer .links {
+  display: flex;
+  gap: 28px;
+}
+
+/* ---------- Reduced motion ---------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .topbar .meta .dot,
+  .signalsStrip .stripLabel .live::before {
+    animation: none;
+  }
+  .success {
+    animation: none;
+  }
+}
+
+/* ---------- Responsive --------------------------------------------------- */
+@media (max-width: 720px) {
+  .page { padding: 32px 24px 56px; }
+  .hero { padding: 64px 0 40px; }
+  .topbar .meta { display: none; }
+  .emailRow { grid-template-columns: 1fr; }
+  .emailRow button { width: 100%; justify-content: center; }
+  .counter { grid-template-columns: repeat(2, 1fr); }
+  .counter .cell:nth-child(2) { border-right: 0; }
+  .counter .cell:nth-child(1), .counter .cell:nth-child(2) {
+    border-bottom: 1px solid var(--border-hairline);
+  }
+  .tracks .grid { grid-template-columns: 1fr; }
+  .tracks .item:nth-child(odd), .tracks .item:nth-child(even) {
+    padding: 22px 0;
+    border-left: 0;
+  }
+  .footer { flex-direction: column; align-items: flex-start; gap: 16px; }
+}

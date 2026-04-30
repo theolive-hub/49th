@@ -1,0 +1,236 @@
+/* ============================================================================
+   THE 49TH — COLORS & TYPE
+   Production intelligence for film & TV. Clarity over style.
+   ============================================================================ */
+
+/* ----------------------------------------------------------------------------
+   FONTS — Inter (self-hosted, variable)
+   The brand uses Inter exclusively. We load the official variable fonts
+   shipped with this design system. No Google Fonts CDN — these files are the
+   source of truth.
+   ---------------------------------------------------------------------------- */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("fonts/Inter-VariableFont_opsz_wght.ttf") format("truetype");
+  font-variation-settings: "opsz" 14;
+}
+
+:root {
+  /* -------------------------------------------------------------------------
+     COLOR — base tokens
+     ------------------------------------------------------------------------- */
+
+  /* Neutrals */
+  --c-black:        #111111;   /* Primary Black — headlines, key UI, primary text */
+  --c-text-gray:    #6A6A6A;   /* Text Gray — supporting text, metadata, secondary UI */
+  --c-ui-gray:      #F2F2F2;   /* UI Gray — chips, dividers, subtle surfaces */
+  --c-bg:           #FAFAFA;   /* Background — primary surface */
+  --c-white:        #FFFFFF;   /* Pure white — cards, table rows */
+
+  /* Lines (slightly darker than UI gray for hairline borders) */
+  --c-line:         #E4E4E4;
+  --c-line-strong:  #C9C9C9;
+
+  /* Accent — used STRICTLY for signal */
+  --c-red:          #E53935;
+  --c-red-hover:    #D32F2F;
+  --c-red-pressed:  #C62828;
+  --c-red-tint:     #FDEBEA;   /* Pale wash for newsletter / alert backgrounds. Use sparingly. */
+
+  /* -------------------------------------------------------------------------
+     COLOR — semantic tokens (USE THESE in components)
+     ------------------------------------------------------------------------- */
+
+  --fg-1:           var(--c-black);       /* Primary text, headlines */
+  --fg-2:           var(--c-text-gray);   /* Secondary text, metadata */
+  --fg-3:           #9A9A9A;              /* Tertiary, timestamps, low-emphasis */
+  --fg-on-dark:     var(--c-white);
+  --fg-on-red:      var(--c-white);
+
+  --bg-app:         var(--c-bg);          /* App background */
+  --bg-surface:     var(--c-white);       /* Cards, table */
+  --bg-muted:       var(--c-ui-gray);     /* Chips, hover, subtle fills */
+  --bg-inverse:     var(--c-black);
+
+  --border-hairline: var(--c-line);       /* Default 1px divider */
+  --border-strong:   var(--c-line-strong);
+
+  --signal:         var(--c-red);         /* Active state, category, status, CTA */
+  --signal-hover:   var(--c-red-hover);
+  --signal-pressed: var(--c-red-pressed);
+  --signal-tint:    var(--c-red-tint);
+
+  /* -------------------------------------------------------------------------
+     TYPOGRAPHY — base
+     ------------------------------------------------------------------------- */
+
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system,
+               BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif-mark: Georgia, 'Times New Roman', serif; /* used ONLY for the 49 monogram fallback */
+
+  /* Type scale (px) — scan-first, density-conscious. */
+  --t-display:    64px;   /* Hero headlines */
+  --t-h1:         44px;   /* Page H1 */
+  --t-h2:         32px;
+  --t-h3:         21px;   /* Card title */
+  --t-h4:         16px;
+  --t-body-lg:    20px;   /* Dek / lead */
+  --t-body:       16px;   /* Default body */
+  --t-body-sm:    14px;   /* Tables, dense UI */
+  --t-meta:       12px;   /* Eyebrow, metadata, category */
+  --t-micro:      11px;   /* Smallest legal limit */
+
+  --lh-tight:     1.02;
+  --lh-snug:      1.2;
+  --lh-normal:    1.5;
+  --lh-relaxed:   1.65;
+
+  --tr-tightest:  -0.04em;  /* Display & H1 */
+  --tr-tight:     -0.02em;  /* H3 / card titles */
+  --tr-normal:     0;
+  --tr-meta:      0.12em;   /* Eyebrows / category */
+  --tr-wordmark:  0.55em;   /* THE 49TH wordmark */
+
+  --w-regular:    400;
+  --w-medium:     500;
+  --w-semi:       600;
+  --w-bold:       700;
+
+  /* -------------------------------------------------------------------------
+     SPACING / RADII / ELEVATION
+     ------------------------------------------------------------------------- */
+  --s-1:  4px;
+  --s-2:  8px;
+  --s-3:  12px;
+  --s-4:  16px;
+  --s-5:  24px;
+  --s-6:  32px;
+  --s-7:  48px;
+  --s-8:  64px;
+  --s-9:  96px;
+
+  --r-xs: 3px;    /* Image corners, hairline elements */
+  --r-sm: 6px;
+  --r-md: 8px;    /* Cards, inputs */
+  --r-lg: 12px;
+  --r-pill: 999px; /* Buttons, tags, chips */
+
+  /* No shadows in product surfaces. One floating-control shadow is allowed. */
+  --shadow-floating: 0 8px 25px rgba(0,0,0,0.08);
+
+  /* Motion */
+  --easing: cubic-bezier(0.2, 0.6, 0.2, 1);
+  --dur-fast: 120ms;
+  --dur-base: 180ms;
+}
+
+/* ============================================================================
+   SEMANTIC TYPE CLASSES — use these instead of styling tags directly
+   ============================================================================ */
+
+html, body {
+  background: var(--bg-app);
+  color: var(--fg-1);
+  font-family: var(--font-sans);
+  font-size: var(--t-body);
+  line-height: var(--lh-normal);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.t-display, h1.display {
+  font-size: clamp(40px, 5vw, var(--t-display));
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tr-tightest);
+  font-weight: var(--w-semi);
+  margin: 0;
+}
+
+.t-h1 {
+  font-size: var(--t-h1);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tr-tightest);
+  font-weight: var(--w-semi);
+  margin: 0;
+}
+
+.t-h2 {
+  font-size: var(--t-h2);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tr-tight);
+  font-weight: var(--w-semi);
+  margin: 0;
+}
+
+.t-h3 {
+  font-size: var(--t-h3);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tr-tight);
+  font-weight: var(--w-medium);
+  margin: 0;
+}
+
+.t-h4, .t-eyebrow {
+  font-size: var(--t-h4);
+  line-height: var(--lh-snug);
+  font-weight: var(--w-semi);
+  margin: 0;
+}
+
+.t-body-lg, .dek {
+  font-size: var(--t-body-lg);
+  line-height: var(--lh-normal);
+  color: var(--fg-2);
+  margin: 0;
+}
+
+.t-body {
+  font-size: var(--t-body);
+  line-height: var(--lh-relaxed);
+  color: var(--fg-1);
+  margin: 0;
+}
+
+.t-body-sm {
+  font-size: var(--t-body-sm);
+  line-height: var(--lh-normal);
+  color: var(--fg-1);
+  margin: 0;
+}
+
+.t-meta {
+  font-size: var(--t-meta);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tr-meta);
+  text-transform: uppercase;
+  font-weight: var(--w-bold);
+  color: var(--fg-2);
+  margin: 0;
+}
+
+.t-category {            /* Red eyebrow — category / section label */
+  font-size: var(--t-meta);
+  letter-spacing: var(--tr-meta);
+  text-transform: uppercase;
+  font-weight: var(--w-bold);
+  color: var(--signal);
+}
+
+.t-wordmark {            /* "THE 49TH" lockup wordmark */
+  font-size: var(--t-micro);
+  letter-spacing: var(--tr-wordmark);
+  font-weight: var(--w-bold);
+  text-transform: uppercase;
+}
+
+/* Table / data UI */
+.t-table-header {
+  font-size: var(--t-micro);
+  letter-spacing: var(--tr-meta);
+  text-transform: uppercase;
+  color: var(--fg-2);
+  font-weight: var(--w-medium);
+}
