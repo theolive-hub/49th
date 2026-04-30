@@ -45,7 +45,111 @@
   <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div id="root"></div>
+  <!--
+    Static fallback below mirrors landing.jsx for crawlers and link unfurlers.
+    React's createRoot replaces it on mount, so users with JS get the
+    interactive version. Keep this in sync with landing.jsx if hero copy,
+    signals, counter cells, or tracks change.
+  -->
+  <div id="root">
+    <div class="page">
+      <header class="topbar">
+        <a href="/" class="markRow" aria-label="The 49th">
+          <img src="assets/49-lockup.svg" alt="The 49th" width="140" height="140" />
+        </a>
+        <div class="meta">
+          <span><span class="dot"></span>Pre-launch</span>
+          <span>Spring 2026</span>
+        </div>
+      </header>
+
+      <section class="hero">
+        <p class="eyebrow">Launching soon</p>
+        <h1>Production intelligence for Canadian film &amp; TV.</h1>
+        <p class="dek">A real-time record of what's in production, who's making it, and where the money is moving. Built for the people working in the industry.</p>
+
+        <div class="signup">
+          <form class="signupForm" action="https://formspree.io/f/maqvwavy" method="post" novalidate>
+            <span class="label">Get early access</span>
+            <div class="emailRow">
+              <input type="email" name="email" inputmode="email" autocomplete="email" placeholder="you@productioncompany.ca" aria-describedby="form-note" required />
+              <button type="submit">
+                Request access
+                <span class="arrow" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 8H13M13 8L8.5 3.5M13 8L8.5 12.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </button>
+            </div>
+            <p id="form-note" class="formNote">No spam. We'll just let you know when we're out of beta.</p>
+          </form>
+        </div>
+
+        <div class="signalsStrip">
+          <div class="stripLabel">
+            <span>Industry signals (sample)</span>
+          </div>
+          <div>
+            <div class="signalRow"><span class="text">Netflix greenlights 'Echoes' limited series</span><time>2h ago</time></div>
+            <div class="signalRow"><span class="text">Top director attached to untitled sci-fi project</span><time>3h ago</time></div>
+            <div class="signalRow"><span class="text">ACTRA reaches tentative deal with producers</span><time>5h ago</time></div>
+            <div class="signalRow"><span class="text">Bell Fund announces $12M Q2 allocation</span><time>7h ago</time></div>
+            <div class="signalRow"><span class="text">Major studio lease signed at Vancouver Film Studios</span><time>9h ago</time></div>
+          </div>
+        </div>
+
+        <div class="counter">
+          <div class="cell"><p class="num">142</p><p class="label">Active projects</p></div>
+          <div class="cell"><p class="num">28</p><p class="label">New this week</p></div>
+          <div class="cell"><p class="num">64</p><p class="label">Companies tracked</p></div>
+          <div class="cell"><p class="num">10</p><p class="label">Provinces covered</p></div>
+        </div>
+
+        <div class="tracks">
+          <p class="stripLabel">What we track</p>
+          <div class="grid">
+            <div class="item">
+              <span class="num">01</span>
+              <div>
+                <h3>Projects</h3>
+                <p>Every active film, series and pilot in development, production or post. Tracked by status, location and company.</p>
+              </div>
+            </div>
+            <div class="item">
+              <span class="num">02</span>
+              <div>
+                <h3>People</h3>
+                <p>Directors, writers, cinematographers, department heads. Who's attached to what, and when they signed on.</p>
+              </div>
+            </div>
+            <div class="item">
+              <span class="num">03</span>
+              <div>
+                <h3>Companies</h3>
+                <p>Production companies, broadcasters, studios, post houses. Their slates, partners and movement.</p>
+              </div>
+            </div>
+            <div class="item">
+              <span class="num">04</span>
+              <div>
+                <h3>Financing</h3>
+                <p>Tax credits, fund allocations, broadcaster commitments, equity deals. The money behind the slate.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>© 2026 The 49th</span>
+        <div class="links">
+          <a href="mailto:tips@49th.io">Tips</a>
+        </div>
+      </footer>
+    </div>
+  </div>
+
   <script type="text/babel" src="landing.jsx"></script>
 </body>
 </html>
