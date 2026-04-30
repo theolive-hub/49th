@@ -1,44 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>49th.io</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #ffffff;
-            color: #1a1a1a;
-            text-align: center;
-        }
-        .content {
-            max-width: 800px;
-            padding: 40px;
-        }
-        h1 {
-            font-size: 48px;
-            font-weight: 800;
-            margin: 0 0 20px 0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        p {
-            font-size: 18px;
-            line-height: 1.6;
-            margin: 0;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 49th</title>
+<meta name="description" content="The intelligence layer for Canadian film and TV production.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black:    #111111;
+    --gray-1:   #6A6A6A;
+    --gray-2:   #F2F2F2;
+    --bg:       #FAFAFA;
+    --white:    #FFFFFF;
+    --red:      #E53935;
+    --hairline: #E6E6E6;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--black);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 32px;
+    border-bottom: 1px solid var(--hairline);
+    background: var(--white);
+  }
+  .topbar img { width: 38px; height: auto; display: block; }
+  .topbar-meta {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gray-1);
+  }
+
+  main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 24px;
+  }
+
+  .panel {
+    width: 100%;
+    max-width: 640px;
+    text-align: center;
+  }
+
+  .panel-mark {
+    margin: 0 auto 44px;
+    width: clamp(200px, 28vw, 280px);
+  }
+  .panel-mark img { width: 100%; height: auto; display: block; }
+
+  h1 {
+    font-weight: 700;
+    font-size: clamp(28px, 3.6vw, 40px);
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    color: var(--black);
+    margin-bottom: 24px;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .red-rule {
+    width: 36px;
+    height: 2px;
+    background: var(--red);
+    margin: 0 auto 24px;
+  }
+
+  .tertiary {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gray-1);
+    line-height: 1.9;
+    margin-bottom: 64px;
+  }
+
+  .signup-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--black);
+    margin-bottom: 14px;
+  }
+
+  form {
+    display: flex;
+    gap: 8px;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+  input[type="email"] {
+    flex: 1;
+    padding: 13px 16px;
+    border: 1px solid var(--hairline);
+    border-radius: 2px;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--black);
+    background: var(--white);
+    transition: border-color 0.15s;
+    min-width: 0;
+  }
+  input[type="email"]:focus { outline: none; border-color: var(--black); }
+  button {
+    background: var(--red);
+    color: var(--white);
+    padding: 13px 24px;
+    border-radius: 2px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: background 0.15s;
+    white-space: nowrap;
+  }
+  button:hover { background: #c62b27; }
+
+  @media (max-width: 480px) {
+    form { flex-direction: column; }
+  }
+
+  .thanks {
+    display: none;
+    max-width: 440px;
+    margin: 0 auto 12px;
+    padding: 11px 14px;
+    background: var(--white);
+    border-left: 3px solid var(--red);
+    border-radius: 2px;
+    font-size: 13px;
+    color: var(--black);
+    text-align: left;
+  }
+  .thanks.show { display: block; }
+
+  footer {
+    padding: 16px 32px;
+    border-top: 1px solid var(--hairline);
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-meta {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gray-1);
+  }
+</style>
 </head>
 <body>
-    <div class="content">
-        <h1>49th.io</h1>
-        <p>Technical production and hardware systems.</p>
-        <p>Kitchener, Ontario.</p>
+
+  <header class="topbar">
+    <img src="logo.svg" alt="The 49th">
+    <div class="topbar-meta">49th.io</div>
+  </header>
+
+  <main>
+    <div class="panel">
+
+      <div class="panel-mark">
+        <img src="logo.svg" alt="The 49th">
+      </div>
+
+      <h1>The intelligence layer for Canadian film &amp; TV production.</h1>
+      <div class="red-rule"></div>
+      <div class="tertiary">
+        Data. Context. Connections.
+      </div>
+
+      <div class="signup-label">Launch announcement</div>
+
+      <div class="thanks" id="thanks">Thanks. We'll be in touch.</div>
+
+      <form id="signup" action="mailto:hello@49th.io" method="post" enctype="text/plain">
+        <input type="email" name="email" placeholder="Email address" required>
+        <button type="submit">Subscribe</button>
+      </form>
+
     </div>
+  </main>
+
+  <footer>
+    <div class="footer-meta">The 49th &nbsp;&middot;&nbsp; 49th.io</div>
+    <div class="footer-meta">&copy; The 49th Inc.</div>
+  </footer>
+
+<script>
+  const form = document.getElementById('signup');
+  const thanks = document.getElementById('thanks');
+  form.addEventListener('submit', () => {
+    setTimeout(() => {
+      form.reset();
+      thanks.classList.add('show');
+    }, 100);
+  });
+</script>
+
 </body>
 </html>
